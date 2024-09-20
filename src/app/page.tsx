@@ -1,101 +1,197 @@
-import Image from "next/image";
+'use client'
 
-export default function Home() {
+import { motion } from 'framer-motion'
+import {  CheckCircle, TrendingUp, Wallet } from 'lucide-react'
+import NavBar from '@/components/NavBar'
+import Lottie from 'lottie-react'
+import moneyAnimation from "@/lib/assests/money.json";
+// import AnimatedGradientTextDemo from '@/components/GradientHeader'
+import BoxReveal from '@/components/magicui/box-reveal'
+import SparklesText from '@/components/magicui/sparkles-text'
+import LoanApplicationSteps from '@/components/Steps'
+import DownloadAppModal from '@/components/Modal'
+
+
+export default function DailyPeLanding() {
+
   return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-8 row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="https://nextjs.org/icons/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li>Save and see your changes instantly.</li>
-        </ol>
+      <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+        {/* Header */}
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+        <NavBar />
+
+        {/* Hero Section */}
+
+        <motion.div
+          initial={{ opacity: 0, scale: 0.9 }}
+          animate={{ opacity: 1, scale: 1 }}
+          transition={{ duration: 0.5, delay: 0.6 }}
+          className=" w-full flex items-center justify-center"
+        >
+          {/* <AnimatedGradientTextDemo /> */}
+          <div className='flex gap-2'>
+          <SparklesText sparklesCount={10} className='text-lg rounded-lg' text="We are backed by " />
+          <img src="https://dailype.in/images/yc.png" className="w-28"/>
+
+          </div>
+          
+        </motion.div>
+        <section className="container mx-auto px-4 py-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="mb-6"
           >
-            <Image
-              className="dark:invert"
-              src="https://nextjs.org/icons/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
-            />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:min-w-44"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
+            <BoxReveal boxColor={"#5046e6"} duration={0.5}>
+              <h1 className="text-4xl md:text-6xl font-bold mb-4">
+                Get Daily Business Loans from <span className="text-blue-600 dark:text-blue-400">₹2K to ₹2L</span> in Minutes
+              </h1>
+            </BoxReveal>
+
+
+            
+            <p className="text-xl text-gray-600 dark:text-gray-300">
+              Stress-Free Business Loans with <span className="font-semibold">Daily Repayments</span>
+            </p>
+          </motion.div>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="text-xl text-gray-600 dark:text-gray-300 mb-8"
           >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-6 flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="https://nextjs.org/icons/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+
+            
+            Say goodbye to monthly loan burdens. DailyPe helps small shop owners manage cash flow with ease.
+
+
+          </motion.p>
+
+
+          <div className='w-full flex justify-center items-center'>
+            <Lottie className='size-[400px]' animationData={moneyAnimation} />
+          </div>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5, delay: 0.4 }}
+            className="space-y-4"
+          >
+            {/* <a
+              href="#apply"
+              className="bg-blue-600 text-white px-8 py-3 rounded-full text-lg font-semibold hover:bg-blue-700 transition duration-300 inline-block"
+            >
+              Apply for a Loan
+            </a> */}
+
+            <DownloadAppModal/>
+
+          </motion.div>
+        </section>
+
+        {/* Features Section */}
+        <section id="features" className="container mx-auto px-4 py-16">
+          <h2 className="text-3xl font-bold text-center mb-12">Why Choose DailyPe?</h2>
+          <div className="grid md:grid-cols-3 gap-8">
+            {[
+              { icon: <Wallet className="w-12 h-12 text-blue-600 dark:text-blue-400" />, title: "Daily Repayments", description: "Automatically deduct small amounts daily from your digital wallet" },
+              { icon: <CheckCircle className="w-12 h-12 text-green-600 dark:text-green-400" />, title: "No Defaults", description: "Stay on track with manageable daily payments" },
+              { icon: <TrendingUp className="w-12 h-12 text-purple-600 dark:text-purple-400" />, title: "Improve Credit Score", description: "Build a strong credit history with consistent repayments" }
+            ].map((feature, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="bg-white dark:bg-gray-800 p-6 rounded-lg shadow-lg text-center"
+              >
+                <div className="flex justify-center mb-4">{feature.icon}</div>
+                <h3 className="text-xl font-semibold mb-2">{feature.title}</h3>
+                <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
+              </motion.div>
+            ))}
+          </div>
+        </section>
+
+        {/* How It Works Section */}
+        {/* <section id="how-it-works" className="container mx-auto px-4 py-16 bg-gray-50 dark:bg-gray-900">
+          <h2 className="text-3xl font-bold text-center mb-12">How DailyPe Works</h2>
+          <div className="max-w-3xl mx-auto">
+            {[
+              { step: 1, title: "Apply Online", description: "Fill out our simple online application form" },
+              { step: 2, title: "Get Approved", description: "Receive a quick decision on your loan application" },
+              { step: 3, title: "Receive Funds", description: "Get the funds deposited directly into your account" },
+              { step: 4, title: "Easy Repayments", description: "Small daily deductions from your digital wallet" }
+            ].map((step, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.5, delay: index * 0.1 }}
+                className="flex items-center mb-8"
+              >
+                <div className="bg-blue-600 dark:bg-blue-500 text-white rounded-full w-12 h-12 flex items-center justify-center font-bold text-xl mr-4">
+                  {step.step}
+                </div>
+                <div>
+                  <h3 className="text-xl font-semibold">{step.title}</h3>
+                  <p className="text-gray-600 dark:text-gray-300">{step.description}</p>
+                </div>
+              </motion.div>
+            ))}
+          </div>
+        </section> */}
+
+        <LoanApplicationSteps/>
+
+        {/* Call to Action Section */}
+        <section id="apply" className="container mx-auto px-4 py-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, scale: 0.9 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{ duration: 0.5 }}
+            className="bg-blue-600 dark:bg-blue-700 text-white rounded-lg p-12"
+          >
+            <h2 className="text-3xl font-bold mb-4">Ready to Get Started?</h2>
+            <p className="text-xl mb-8">Apply now and take control of your business finances</p>
+           <DownloadAppModal/>
+          </motion.div>
+        </section>
+
+        {/* YC Backing Section */}
+        {/* <section className="container mx-auto px-4 py-16 text-center">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+            className="bg-gray-100 dark:bg-gray-800 rounded-lg p-8"
+          >
+            <h2 className="text-3xl font-bold mb-4">Backed by Y Combinator</h2>
+            <p className="text-xl text-gray-600 dark:text-gray-300 mb-6">
+              We're proud to be supported by the world's leading startup accelerator, bringing you innovative financial solutions.
+            </p>
+            <img src="/placeholder.svg?height=60&width=200" alt="Y Combinator Logo" className="mx-auto" />
+          </motion.div>
+        </section> */}
+
+        {/* Footer */}
+        <footer className="bg-gray-800 dark:bg-gray-900 text-white py-8">
+          <div className="container mx-auto px-4">
+            <div className="flex flex-col md:flex-row justify-between items-center">
+              <div className="text-2xl font-bold mb-4 md:mb-0">DailyPe</div>
+              <div className="flex space-x-4">
+                <a href="#" className="hover:text-blue-400">Terms of Service</a>
+                <a href="#" className="hover:text-blue-400">Privacy Policy</a>
+                <a href="#" className="hover:text-blue-400">Contact Us</a>
+              </div>
+            </div>
+            <div className="mt-4 text-center text-gray-400 text-sm">
+              © {new Date().getFullYear()} DailyPe. All rights reserved.
+            </div>
+          </div>
+        </footer>
+      </div>
+  )
 }
