@@ -10,7 +10,7 @@ export default function DailyComponent() {
   ]
 
   return (
-    <Card className="w-full max-w-6xl mx-auto dark:bg-gray-800 shadow-xl ">
+    <Card className="w-full max-w-6xl mx-auto dark:bg-background shadow-xl ">
       <CardHeader className="text-center">
         <CardTitle className="text-3xl font-bold text-primary">How Daily Installment Works</CardTitle>
         <p className="text-muted-foreground mt-2">

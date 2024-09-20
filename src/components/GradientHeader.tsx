@@ -2,6 +2,7 @@ import { ChevronRight } from "lucide-react";
 
 import { cn } from "@/lib/utils";
 import AnimatedGradientText from "@/components/magicui/animated-gradient-text";
+import Image from "next/image";
 
 export default async function AnimatedGradientTextDemo() {
   return (
@@ -16,7 +17,7 @@ export default async function AnimatedGradientTextDemo() {
 
       <div className="text-xl">We are backed by</div>
 
-        <img src="https://dailype.in/images/yc.png" className="w-28"/>
+        <Image alt="" src="https://dailype.in/images/yc.png" className="w-28"/>
         </span>
         <ChevronRight className="ml-1 size-3 transition-transform duration-300 ease-in-out group-hover:translate-x-0.5" />
       </AnimatedGradientText>

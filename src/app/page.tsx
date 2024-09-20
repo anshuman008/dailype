@@ -1,7 +1,6 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import { CheckCircle, TrendingUp, Wallet } from 'lucide-react'
 import NavBar from '@/components/NavBar'
 import Lottie from 'lottie-react'
 import moneyAnimation from "@/lib/assests/money.json";
@@ -15,6 +14,8 @@ import logo from "@/lib/assests/logo.png"
 import Image from 'next/image'
 import ShineBorder from '@/components/magicui/shine-border'
 import { useEffect, useState } from 'react'
+import MarqueeDemo from '@/components/Marquee'
+import CardHoverEffectDemo from '@/components/CardEffects'
 
 
 export default function DailyPeLanding() {
@@ -31,7 +32,7 @@ export default function DailyPeLanding() {
    }
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-blue-50 to-white dark:from-gray-900 dark:to-gray-800 text-gray-900 dark:text-gray-100 transition-colors duration-200">
+    <div className="min-h-screen bg-white dark:bg-[#09090b]  text-gray-900 dark:text-gray-100 transition-colors duration-200">
       {/* Header */}
 
       <NavBar />
@@ -110,7 +111,7 @@ export default function DailyPeLanding() {
       {/* Features Section */}
       <section id="features" className="container mx-auto px-4 py-16">
         <h2 className="text-3xl font-bold text-center mb-12">Why Choose DailyPe?</h2>
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* <div className="grid md:grid-cols-3 gap-8">
           {[
             { icon: <Wallet className="w-12 h-12 text-blue-600 dark:text-blue-400" />, title: "Daily Repayments", description: "Automatically deduct small amounts daily from your digital wallet" },
             { icon: <CheckCircle className="w-12 h-12 text-green-600 dark:text-green-400" />, title: "No Defaults", description: "Stay on track with manageable daily payments" },
@@ -128,7 +129,8 @@ export default function DailyPeLanding() {
               <p className="text-gray-600 dark:text-gray-300">{feature.description}</p>
             </motion.div>
           ))}
-        </div>
+        </div> */}
+        <CardHoverEffectDemo/>
       </section>
 
       {/* How It Works Section */}
@@ -164,7 +166,7 @@ export default function DailyPeLanding() {
 
       <DailyComponent />
       {/* Call to Action Section */}
-      <section id="apply" className="container mx-auto px-4 py-16 text-center max-w-6xl">
+      {/* <section id="apply" className="container mx-auto px-4 py-16 text-center max-w-6xl">
         <motion.div
           initial={{ opacity: 0, scale: 0.9 }}
           animate={{ opacity: 1, scale: 1 }}
@@ -175,7 +177,11 @@ export default function DailyPeLanding() {
           <p className="text-xl mb-8">Download the App now and take control of your business finances</p>
           <DownloadAppModal />
         </motion.div>
-      </section>
+      </section> */}
+
+      {/* <Section id='testimonial' className='bg-red-400 w-full' > */}
+        <MarqueeDemo/>
+      {/* </Section> */}
 
       {/* YC Backing Section */}
       <section className="container mx-auto px-4 py-16 text-center w-full flex justify-center items-center">
@@ -205,7 +211,7 @@ export default function DailyPeLanding() {
       </section>
 
       {/* Footer */}
-      <footer className="bg-gray-800 dark:bg-gray-900 text-white py-8">
+      <footer className="bg-gray-800 dark:bg-[#09090b] text-white py-8 border-t-2 ">
         <div className="container mx-auto px-4">
           <div className="flex flex-col md:flex-row justify-between items-center">
             <div className="text-2xl font-bold mb-4 md:mb-0 flex gap-x-2 justify-between items-center">
