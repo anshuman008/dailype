@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import ThemeToggle from './ToggleTheme'
 import { motion } from 'framer-motion'
-
+import logo from "@/lib/assests/logo.png"
+import Image from 'next/image'
 const NavBar = () => {
 
     const [isMenuOpen, setIsMenuOpen] = useState(false)
@@ -10,7 +11,15 @@ const NavBar = () => {
         <div>
             <header className="container mx-auto px-4 py-6">
                 <nav className="flex items-center justify-between">
-                    <div className="text-2xl font-bold text-blue-600 dark:text-blue-400">DailyPe</div>
+                    <div className="text-2xl font-bold text-blue-600 dark:text-blue-400 flex gap-x-3 justify-center items-center">
+
+                    <Image alt='logo' src={logo} height={30} width={30}  /> 
+                        <span>
+                            DailyPe
+                        </span>
+                        
+                     
+                    </div>
                     <div className="hidden md:flex space-x-6 items-center">
                         <a href="#features" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">Features</a>
                         <a href="#how-it-works" className="text-gray-600 dark:text-gray-300 hover:text-blue-600 dark:hover:text-blue-400">How It Works</a>

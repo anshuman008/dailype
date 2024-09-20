@@ -30,7 +30,7 @@ export default function LoanApplicationSteps() {
   ]
 
   return (
-    <div id='how-it-works' className="container mx-auto px-4 py-16 max-w-4xl">
+    <div id='how-it-works' className="container mx-auto px-4 py-16 max-w-5xl">
       <h2 className="text-4xl font-bold text-center mb-12 text-gray-800 dark:text-white">
         Apply for loan in <span className="text-blue-600">3 easy steps</span>
       </h2>
